@@ -1,0 +1,38 @@
+{
+  "name": "sponsorcast-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLI tool for uploading videos to Sponsorcast - exclusive video platform for GitHub Sponsors",
+  "keywords": ["sponsorcast", "github", "sponsors", "video", "hls", "cli", "upload"],
+  "author": "livrasand",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/livrasand/sponsorcast-cli.git"
+  },
+  "homepage": "https://sponsorcast.vercel.app",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "bin": {
+    "sponsorcast": "./bin/sponsorcast.js"
+  },
+  "scripts": {
+    "start": "node ./bin/sponsorcast.js",
+    "upload:dev": "cross-env NODE_ENV=development node ./bin/sponsorcast.js upload",
+    "upload:prod": "cross-env NODE_ENV=production node ./bin/sponsorcast.js upload"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.10",
+    "ora": "^7.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "ffmpeg-static": "^5.2.0"
+  }
+}
