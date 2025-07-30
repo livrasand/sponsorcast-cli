@@ -49,3 +49,40 @@ To prevent naming conflicts, the CLI automatically generates unique video IDs us
 - Random string
 
 Example: `my-tutorial-a1b2c3d4-e5f6g7h8`
+
+Here’s the translation to English:
+
+---
+
+## Test locally
+
+From the root of the project (where `package.json` is located):
+
+```bash
+npm link
+```
+
+This creates a global symlink on your system, as if you had installed the package from npm.
+
+✅ 3. Run the command as if it were global
+Now you can run your CLI from anywhere on your system using:
+
+```bash
+sponsorcast
+```
+
+You should see the output of the script in the console (e.g., *Sponsorcast CLI is working!*).
+
+✅ 4. When you're done testing
+To uninstall the symlink:
+
+```bash
+npm unlink
+```
+
+Or, if you need to restart the link (e.g., if changes aren’t being reflected):
+
+```bash
+npm unlink
+npm link
+```
