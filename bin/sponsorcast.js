@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { program } from 'commander';
 import uploadCommand from '../src/commands/upload.js';
+import loginCommand from '../src/commands/login.js';
+import logoutCommand from '../src/commands/logout.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -10,6 +12,14 @@ program
   .name('sponsorcast')
   .description('CLI tool for uploading videos to Sponsorcast')
   .version('1.0.0');
+
+program.command('login')
+  .description('Login to Sponsorcast')
+  .action(loginCommand);
+
+program.command('logout')
+  .description('Logout from Sponsorcast')
+  .action(logoutCommand);
 
 program.command('upload')
   .description('Upload a video to Sponsorcast')

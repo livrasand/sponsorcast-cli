@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import axios from 'axios';
 import { logger } from './logger.js';
 
-export const uploadFiles = async (files, videoId) => {
+export const uploadFiles = async (files, videoId, token) => {
   try {
     const form = new FormData();
 
@@ -30,6 +30,7 @@ export const uploadFiles = async (files, videoId) => {
     const response = await axios.post(API_URL, form, {
       headers: {
         ...form.getHeaders(),
+        'Authorization': `Bearer ${token}`,
         'Accept': 'application/json'
       },
       maxContentLength: Infinity,

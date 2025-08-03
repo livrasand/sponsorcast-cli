@@ -2,11 +2,19 @@ import { logger } from '../utils/logger.js';
 import { convertToHLS } from '../utils/convert.js';
 import { uploadFiles } from '../utils/upload.js';
 import { generateUniqueVideoId } from '../utils/generateId.js';
+import { getToken } from '../utils/config.js';
+import chalk from 'chalk';
 import fs from 'fs-extra';
 import path from 'path';
 
 export default async (options) => {
   try {
+    const token = await getToken();
+    if (!token) {
+      logger.error('You are not logged in. Please run "sponsorcast login" first.');
+      return;
+    }
+
     logger.startSpinner('Validating video file...');
     if (!(await fs.pathExists(options.video))) {
       throw new Error(`Video file not found: ${options.video}`);
@@ -50,7 +58,7 @@ export default async (options) => {
     }
 
     logger.updateSpinner('Uploading files...');
-    const result = await uploadFiles(files, videoId);
+    const result = await uploadFiles(files, videoId, token);
 
     logger.success('Upload completed successfully!');
     logger.info(`Video ID: ${result.videoId}`);
