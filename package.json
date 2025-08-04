@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "CLI tool for uploading videos to Sponsorcast - exclusive video platform for GitHub Sponsors",
+  "main": "./bin/sponsorcast.js",
   "keywords": [
     "sponsorcast",
     "github",
@@ -10,23 +11,42 @@
     "video",
     "hls",
     "cli",
-    "upload"
+    "upload",
+    "streaming",
+    "content-creation"
   ],
-  "author": "livrasand",
+  "author": {
+    "name": "livrasand",
+    "url": "https://github.com/livrasand"
+  },
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/livrasand/sponsorcast-cli.git"
+    "url": "git+https://github.com/livrasand/sponsorcast-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/livrasand/sponsorcast-cli/issues"
   },
   "homepage": "https://sponsorcast.vercel.app",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
   },
   "bin": {
     "sponsorcast": "./bin/sponsorcast.js"
   },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "start": "node ./bin/sponsorcast.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run validate",
+    "validate": "node ./bin/sponsorcast.js --help",
     "upload:dev": "cross-env NODE_ENV=development node ./bin/sponsorcast.js upload",
     "upload:prod": "cross-env NODE_ENV=production node ./bin/sponsorcast.js upload"
   },
