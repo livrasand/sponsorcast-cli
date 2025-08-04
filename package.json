@@ -1,5 +1,5 @@
 {
-  "name": "sponsorcast-cli",
+  "name": "@livrasand/sponsorcast-cli",
   "version": "1.0.0",
   "type": "module",
   "description": "CLI tool for uploading videos to Sponsorcast - exclusive video platform for GitHub Sponsors",
