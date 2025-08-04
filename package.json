@@ -24,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/livrasand/sponsorcast-cli.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "bugs": {
     "url": "https://github.com/livrasand/sponsorcast-cli/issues"
   },
